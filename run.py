@@ -38,6 +38,42 @@ def get_listen_music(f):
 
     ### ADD MORE INSIGHTS METRICS FUNCTIONS
 
+decadeOptions = ["80s", "90s", "90s", "00s", "60s"]
+
+genreOptions = ["Rock", "Rock", "Hip/Hop", "Hip/Hop", "Rock"]
+
+yesNoOptions = ["< 4hours", "> 4hours", "< 4hours", "< 4hours", " >4hours" ]
+
+def findFrequencies(options):
+  basketFrequencies = {}
+
+  for basketOption in options:
+    # print(basketOption)
+    if basketOption in basketFrequencies:
+      basketFrequencies[basketOption] += 1
+    else:
+      basketFrequencies[basketOption] = 1
+
+  return basketFrequencies
+
+def mostPopularChoice(choices):
+    frequencies = findFrequencies(choices)
+
+    mostPopularChoice = None
+    mostPopularFrequency = None
+    for choice, frequency in frequencies.items():
+      if mostPopularChoice is None or frequency > mostPopularFrequency:
+        mostPopularChoice = choice
+        mostPopularFrequency = frequency 
+
+    return mostPopularChoice
+
+# print(mostPopularChoice(decadeOptions))
+print(decadeOptions)
+print("\n")
+print(findFrequencies(decadeOptions))
+# print(findFrequencies(genreOptions))
+# print(findFrequencies(yesNoOptions))
 
 
 def start_insights():
