@@ -2,6 +2,24 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
+import gspread
+from google.oauth2.service.account import Credentials
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+
+MUSIC = Credentials.from_service_account_file('music-survey.json')
+SCOPED_CREDS = MUSIC-with_scopes(SCOPE)
+GSPREAD_CLIENT =gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('music_survey')
+
+print(data)
+
+
 def validate_answers():
     try:
         open("answers.csv", "r")
